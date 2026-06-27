@@ -6,9 +6,20 @@ btn.addEventListener("click",async function() {
     const fromCurrency = document.getElementById("fromCurrency").value;
     const toCurrency = document.getElementById("toCurrency").value;
 
+    if(!amount){
+        document.getElementById("result").textContent ="Enter an amount";
+        return;
+    }
+
+    if(fromCurrency===toCurrency){
+        document.getElementById("result").textContent="Select different currencies";
+        return;
+    }
+
     document.getElementById("result").textContent = "Converting...";
 
-    const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${fromCurrency}`);
+    try{
+        const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${fromCurrency}`);
     const data = await response.json();
 
     const rates = data.conversion_rates[toCurrency];
@@ -16,5 +27,9 @@ btn.addEventListener("click",async function() {
 
     document.getElementById("result").textContent=`${amount} ${fromCurrency} = ${results.toFixed(2)} ${toCurrency}`;
 
+    }catch{
+        document.getElementById("result").textContent="Something went wrong. Check your connection and try again";
+    }
+    
 }
 )
