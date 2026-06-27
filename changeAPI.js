@@ -6,6 +6,8 @@ btn.addEventListener("click",async function() {
     const fromCurrency = document.getElementById("fromCurrency").value;
     const toCurrency = document.getElementById("toCurrency").value;
 
+    document.getElementById("result").textContent = "Converting...";
+
     const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${fromCurrency}`);
     const data = await response.json();
 
