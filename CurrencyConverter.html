@@ -50,11 +50,20 @@
     <h1>Currency Converter</h1>
     <input type="number" id="amount" placeholder="Enter amount in naira">
     
-    <select name="currency" id="currency">
-        <option value="USD">Dollar</option>
-        <option value="EUR">Euro</option>
-        <option value="GBP">Pound</option>
-        
+   <select id="fromCurrency">
+        <option value="NGN">NGN - Naira</option>
+        <option value="USD">USD - Dollar</option>
+        <option value="GBP">GBP - Pounds</option>
+        <option value="EUR">EUR - Euro</option>
+    </select>
+
+    <p>TO</p>
+
+    <select id="toCurrency">
+        <option value="USD">USD - Dollar</option>
+        <option value="GBP">GBP - Pounds</option>
+        <option value="EUR">EUR - Euro</option>
+        <option value="NGN">NGN - Naira</option>
     </select>
 
     <button id="convertBtn">Convert</button>
